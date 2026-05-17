@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kế hoạch nhận sang nhượng F&B — Phí 120tr · Thuê 25-30tr/tháng</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1a1d23; background: #f5f1ea; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  :root { --bg:#f5f1ea; --paper:#fff; --ink:#1a1d23; --ink-soft:#4a4f57; --ink-mute:#7a7f88; --line:#e3dccd; --line-strong:#c9bfa9; --accent:#b8472f; --accent-deep:#8b3422; --accent-soft:#f3e2d8; --navy:#1f3a5f; --navy-soft:#e8eef5; --gold:#c9962b; --gold-light:#ffd98a; --green:#2f7a4f; --green-soft:#e3f0e8; --red:#c0392b; --red-soft:#fbe7e3; --amber:#d68910; --amber-soft:#fcf0d8; --purple:#6b4a7a; --purple-soft:#ede5f2; }
+  h1,h2,h3,h4 { font-family: Georgia, "Times New Roman", serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em; line-height:1.25; }
+  h1 { font-size:clamp(28px,4.5vw,44px); margin:0 0 8px; letter-spacing:-0.02em; }
+  h2 { font-size:clamp(22px,3vw,30px); margin:0 0 18px; padding-top:8px; }
+  h3 { font-size:clamp(17px,2vw,21px); margin:28px 0 12px; color:var(--accent-deep); }
+  h4 { font-size:16px; margin:18px 0 8px; color:var(--navy); }
+  p { margin:0 0 12px; }
+  strong { color:var(--ink); font-weight:600; }
+  .container { max-width:1180px; margin:0 auto; padding:0 20px; }
+  .hero { background:linear-gradient(135deg,#2a1f1a 0%,#3d2820 50%,#5a3424 100%); color:#f5ede0; padding:56px 0 72px; position:relative; overflow:hidden; }
+  .hero::before { content:""; position:absolute; inset:0; background-image:radial-gradient(circle at 80% 20%,rgba(201,150,43,0.18),transparent 50%),radial-gradient(circle at 20% 80%,rgba(184,71,47,0.15),transparent 50%); pointer-events:none; }
+  .hero-eyebrow { font-size:12px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; font-weight:600; }
+  .hero h1 { color:#fff8ec; max-width:880px; }
+  .hero .lede { max-width:760px; font-size:17px; line-height:1.6; color:#d9cdb8; margin-top:16px; }
+  .hero-meta { display:flex; flex-wrap:wrap; gap:18px; margin-top:28px; font-size:13px; color:#c4b395; }
+  .hero-meta span { display:inline-flex; align-items:center; gap:8px; }
+  .hero-meta span::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); display:inline-block; }
+  .stat-row { display:flex; gap:20px; margin-top:24px; flex-wrap:wrap; }
+  .stat { background:rgba(255,255,255,0.06); border:1px solid rgba(201,150,43,0.3); border-radius:8px; padding:14px 20px; min-width:160px; }
+  .stat-label { font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#c4b395; margin-bottom:4px; }
+  .stat-value { font-family:Georgia,serif; font-size:22px; color:#ffd98a; font-weight:700; }
+  .toc { background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:24px 28px; margin:-36px auto 40px; box-shadow:0 14px 40px -18px rgba(20,15,10,0.3); position:relative; z-index:2; }
+  .toc h2 { font-size:13px; text-transform:uppercase; letter-spacing:0.18em; color:var(--ink-mute); margin-bottom:14px; font-family:-apple-system,sans-serif; font-weight:700; }
+  .toc ol { columns:2; column-gap:32px; margin:0; padding-left:18px; font-size:14px; }
+  .toc li { break-inside:avoid; margin-bottom:5px; }
+  .toc a { color:var(--ink-soft); text-decoration:none; transition:color 0.15s; }
+  .toc a:hover { color:var(--accent); }
+  @media (max-width:720px) { .toc ol { columns:1; } }
+  section.block { background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:36px 38px; margin-bottom:24px; }
+  @media (max-width:640px) { section.block { padding:24px 20px; } }
+  .section-num { display:inline-block; font-family:Georgia,serif; font-style:italic; color:var(--accent); font-size:14px; letter-spacing:0.04em; margin-bottom:6px; }
+  .phase { border:1px solid var(--line); border-left:5px solid var(--accent); border-radius:8px; padding:22px 24px; margin:18px 0; background:#fcfaf4; }
+  .phase-header { display:flex; align-items:baseline; flex-wrap:wrap; gap:12px; margin-bottom:12px; }
+  .phase-tag { display:inline-block; background:var(--accent); color:#fff; font-size:11px; font-weight:700; letter-spacing:0.1em; padding:4px 10px; border-radius:3px; text-transform:uppercase; }
+  .phase-duration { color:var(--ink-mute); font-size:13px; font-style:italic; }
+  .phase h3 { margin:0; color:var(--ink); font-size:19px; }
+  .phase-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:14px; }
+  @media (max-width:740px) { .phase-grid { grid-template-columns:1fr; } }
+  .phase-block h4 { font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-mute); margin:0 0 6px; font-family:-apple-system,sans-serif; font-weight:700; }
+  .phase-block ul { margin:0; padding-left:18px; font-size:14px; }
+  .phase-block ul li { margin-bottom:3px; }
+  .phase-gate { background:#1a1d23; color:#f5ede0; margin-top:14px; padding:12px 16px; border-radius:6px; font-size:13.5px; display:flex; gap:12px; align-items:flex-start; }
+  .phase-gate::before { content:"⛔"; font-size:18px; flex-shrink:0; }
+  .gate-label { color:#ffd98a; font-weight:600; }
+  .table-wrap { overflow-x:auto; margin:16px 0; }
+  table { width:100%; border-collapse:collapse; font-size:14px; background:var(--paper); }
+  th,td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#faf6ed; font-weight:600; color:var(--ink); font-size:13px; text-transform:uppercase; letter-spacing:0.04em; border-bottom:2px solid var(--line-strong); }
+  tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:#fcfaf4; }
+  td.num,th.num { text-align:right; font-variant-numeric:tabular-nums; }
+  td.center,th.center { text-align:center; }
+  tr.dark-row { background:#1a1d23; color:#fff; font-weight:700; }
+  tr.dark-row td { color:#fff; }
+  tr.dark-row strong { color:#ffd98a; }
+  tr.accent-row { background:var(--accent); color:#fff; font-weight:700; }
+  tr.accent-row td { color:#fff; }
+  tr.gold-row { background:var(--amber-soft); font-weight:600; }
+  tr.green-row { background:var(--green-soft); font-weight:600; }
+  tr.red-row { background:var(--red-soft); }
+  .checklist { list-style:none; padding:0; margin:12px 0; }
+  .checklist li { position:relative; padding:8px 8px 8px 36px; border-bottom:1px dashed var(--line); line-height:1.55; }
+  .checklist li:last-child { border-bottom:none; }
+  .checklist li::before { content:""; position:absolute; left:8px; top:12px; width:16px; height:16px; border:1.5px solid var(--line-strong); border-radius:3px; background:#fff; }
+  .checklist li.must::before { border-color:var(--accent); }
+  .checklist li.must::after { content:"BẮT BUỘC"; font-size:10px; background:var(--accent); color:#fff; padding:2px 6px; border-radius:3px; margin-left:8px; letter-spacing:0.05em; vertical-align:middle; font-weight:600; }
+  .checklist li.stop::before { border-color:var(--red); background:var(--red); }
+  .checklist li.stop::after { content:"DEAL-BREAKER"; font-size:10px; background:var(--red); color:#fff; padding:2px 6px; border-radius:3px; margin-left:8px; letter-spacing:0.05em; vertical-align:middle; font-weight:600; }
+  .callout { border-left:4px solid; padding:14px 18px; margin:16px 0; border-radius:0 6px 6px 0; font-size:14.5px; }
+  .callout strong:first-child { display:block; margin-bottom:4px; font-size:13px; text-transform:uppercase; letter-spacing:0.05em; }
+  .callout.warn { background:var(--red-soft); border-color:var(--red); color:#5e1d15; }
+  .callout.warn strong:first-child { color:var(--red); }
+  .callout.tip { background:var(--green-soft); border-color:var(--green); color:#1d3d29; }
+  .callout.tip strong:first-child { color:var(--green); }
+  .callout.note { background:var(--navy-soft); border-color:var(--navy); color:#14253a; }
+  .callout.note strong:first-child { color:var(--navy); }
+  .callout.danger { background:#2a0e0a; color:#f5d7d1; border-color:var(--gold); }
+  .callout.danger strong { color:var(--gold-light); }
+  .callout.action { background:var(--amber-soft); border-color:var(--amber); color:#5a3e10; }
+  .callout.action strong:first-child { color:var(--amber); }
+  .formula { background:#1a1d23; color:#f5ede0; padding:16px 20px; border-radius:6px; font-family:"SF Mono",Consolas,Menlo,monospace; font-size:14px; margin:14px 0; line-height:1.7; overflow-x:auto; white-space:pre-wrap; }
+  .formula strong { color:var(--gold-light); font-weight:700; }
+  .formula .label { color:var(--gold); }
+  .formula .equals { color:#6e95c4; }
+  .formula .num { color:#95e1a3; }
+  .cards-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:18px 0; }
+  .cards-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin:18px 0; }
+  @media (max-width:840px) { .cards-3,.cards-2 { grid-template-columns:1fr; } }
+  .card { background:#fcfaf4; border:1px solid var(--line); border-radius:8px; padding:20px; }
+  .card h4 { margin-top:0; }
+  .card .price-tag { display:inline-block; background:var(--accent); color:#fff; padding:3px 10px; font-size:11px; border-radius:3px; letter-spacing:0.05em; text-transform:uppercase; font-weight:600; margin-bottom:8px; }
+  .card.safe .price-tag { background:var(--green); }
+  .card.profit .price-tag { background:var(--accent); }
+  .card.viral .price-tag { background:var(--gold); color:#1a1d23; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:3px; font-size:11px; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; }
+  .badge.green { background:var(--green-soft); color:var(--green); }
+  .badge.red { background:var(--red-soft); color:var(--red); }
+  .badge.amber { background:var(--amber-soft); color:var(--amber); }
+  .badge.navy { background:var(--navy-soft); color:var(--navy); }
+  .badge.purple { background:var(--purple-soft); color:var(--purple); }
+  .roadmap { border-left:3px solid var(--accent); margin:20px 0 20px 12px; padding-left:24px; }
+  .roadmap .milestone { position:relative; padding:0 0 24px; }
+  .roadmap .milestone::before { content:""; position:absolute; left:-33px; top:6px; width:14px; height:14px; border-radius:50%; background:var(--accent); border:3px solid #fff; box-shadow:0 0 0 2px var(--accent); }
+  .roadmap .milestone-day { font-family:Georgia,serif; font-style:italic; color:var(--accent); font-size:13px; letter-spacing:0.04em; text-transform:uppercase; font-weight:600; }
+  .roadmap .milestone h4 { margin:4px 0 8px; }
+  .decision-box { background:linear-gradient(135deg,#1a1d23 0%,#2a3142 100%); color:#f5ede0; padding:28px 32px; border-radius:10px; margin:24px 0; }
+  .decision-box h3 { color:var(--gold); margin-top:0; }
+  .decision-box strong { color:var(--gold-light); }
+  .go-nogo { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0; }
+  @media (max-width:720px) { .go-nogo { grid-template-columns:1fr; } }
+  .go-nogo .go,.go-nogo .nogo { padding:16px 20px; border-radius:6px; }
+  .go-nogo .go { background:var(--green-soft); border-left:4px solid var(--green); }
+  .go-nogo .nogo { background:var(--red-soft); border-left:4px solid var(--red); }
+  .go-nogo h4 { margin-top:0; }
+  .go-nogo .go h4 { color:var(--green); }
+  .go-nogo .nogo h4 { color:var(--red); }
+  .final { background:linear-gradient(135deg,#1a1d23 0%,#3d2820 100%); color:#f5ede0; padding:40px; border-radius:12px; margin:32px 0; }
+  .final h2 { color:var(--gold); }
+  .final strong { color:var(--gold-light); }
+  .final ul.action-list { list-style:none; padding:0; counter-reset:action-counter; }
+  .final ul.action-list li { padding:10px 0 10px 36px; border-bottom:1px solid rgba(255,255,255,0.08); position:relative; font-size:15px; }
+  .final ul.action-list li::before { content:counter(action-counter); counter-increment:action-counter; position:absolute; left:0; top:10px; background:var(--gold); color:#1a1d23; width:24px; height:24px; border-radius:50%; text-align:center; line-height:24px; font-weight:700; font-size:12px; }
+  .price-eval { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:18px 0; }
+  @media (max-width:840px) { .price-eval { grid-template-columns:1fr; } }
+  .price-eval-card { padding:18px; border-radius:8px; border:2px solid; }
+  .price-eval-card.green { background:var(--green-soft); border-color:var(--green); }
+  .price-eval-card.amber { background:var(--amber-soft); border-color:var(--amber); }
+  .price-eval-card.red { background:var(--red-soft); border-color:var(--red); }
+  .price-eval-card h4 { margin-top:0; }
+  .price-eval-card .verdict { font-family:Georgia,serif; font-size:24px; font-weight:700; margin:6px 0; }
+  .price-eval-card.green .verdict { color:var(--green); }
+  .price-eval-card.amber .verdict { color:var(--amber); }
+  .price-eval-card.red .verdict { color:var(--red); }
+  footer { text-align:center; padding:40px 20px; color:var(--ink-mute); font-size:13px; border-top:1px solid var(--line); margin-top:40px; }
+  footer em { color:var(--accent); font-style:italic; }
+  .totop { position:fixed; bottom:20px; right:20px; width:44px; height:44px; background:var(--accent); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; box-shadow:0 8px 20px rgba(184,71,47,0.4); font-size:20px; opacity:0; pointer-events:none; transition:opacity 0.3s; }
+  .totop.visible { opacity:1; pointer-events:auto; }
+  @media print { body{background:#fff} .toc,.hero{page-break-after:avoid} section.block{page-break-inside:avoid; break-inside:avoid; border:none; padding:12px 0} .totop{display:none} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Bước 3 · Kế hoạch nhận sang nhượng</div>
+    <h1>Phí chuyển nhượng 120 triệu — có đáng không? Và làm sao để không đốt vốn sau đó?</h1>
+    <p class="lede">Kế hoạch triển khai cho người chuẩn bị bỏ tiền thật vào một mặt bằng sang nhượng F&amp;B. Tập trung: định giá tài sản chuyển nhượng, xác minh quán cũ vì sao đóng, kéo khách thử cho thương hiệu mới, vận hành kết hợp tại chỗ + app delivery, và biết khi nào nên tiếp tục/dừng.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-label">Phí chuyển nhượng</div><div class="stat-value">120tr</div></div>
+      <div class="stat"><div class="stat-label">Thuê/tháng</div><div class="stat-value">25-30tr</div></div>
+      <div class="stat"><div class="stat-label">Sức chứa</div><div class="stat-value">20 bàn / 70 khách</div></div>
+      <div class="stat"><div class="stat-label">Mục tiêu DT/tháng</div><div class="stat-value">240-280tr</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<nav class="toc" aria-label="Mục lục">
+  <h2>Mục lục</h2>
+  <ol>
+    <li><a href="#s1">Đánh giá phí chuyển nhượng 120 triệu</a></li>
+    <li><a href="#s2">Đánh giá mặt bằng 25-30 triệu/tháng · 20 bàn</a></li>
+    <li><a href="#s3">Định vị thương hiệu mới Hàn-Nhật</a></li>
+    <li><a href="#s4">Lộ trình 16 phase từ nhận đến ổn định</a></li>
+    <li><a href="#s5">Marketing kéo khách thử lần đầu</a></li>
+    <li><a href="#s6">Ngân sách marketing 3 kịch bản</a></li>
+    <li><a href="#s7">Chiến lược bán qua app delivery</a></li>
+    <li><a href="#s8">Công cụ, app, phần mềm</a></li>
+    <li><a href="#s9">Menu, giá bán, combo, signature</a></li>
+    <li><a href="#s10">Nhân sự &amp; quy trình vận hành</a></li>
+    <li><a href="#s11">Pháp lý, thuế &amp; giấy tờ</a></li>
+    <li><a href="#s12">Tài chính, hòa vốn &amp; dòng tiền</a></li>
+    <li><a href="#s13">Mốc kiểm tra 7-14-30-60-90 ngày</a></li>
+    <li><a href="#s14">Giữ khách quay lại</a></li>
+    <li><a href="#s15">Danh sách file &amp; biểu mẫu</a></li>
+    <li><a href="#s16">Kết luận hành động</a></li>
+  </ol>
+</nav>
+
+
+<section class="block" id="s1">
+  <span class="section-num">Phần 01</span>
+  <h2>Đánh giá phí chuyển nhượng 120 triệu — có đáng không?</h2>
+
+  <div class="callout danger">
+    <strong>Quy tắc số 1 trước khi đọc phần này</strong>
+    Phí chuyển nhượng không bao giờ được trả trước khi kiểm kê xong và xác minh được lý do quán cũ đóng. <strong>Không có ngoại lệ.</strong> Nếu chủ cũ giục bạn cọc trong 24-48h "vì có người khác hỏi" — đó là chiến thuật áp lực, hãy bước đi.
+  </div>
+
+  <h3>Phí chuyển nhượng 120 triệu thực ra là gì?</h3>
+  <p>Ở Việt Nam, phí sang nhượng F&amp;B thường gồm <strong>3 phần</strong> trộn lẫn (đôi khi chủ cũ không tách rõ):</p>
+  <ol>
+    <li><strong>Tài sản hữu hình</strong> — bàn ghế, bếp, tủ lạnh, máy lạnh, hút mùi, POS, camera, chén đĩa, decor. <strong>Định giá được</strong> theo giá thị trường thiết bị cũ.</li>
+    <li><strong>"Key money" / phí vị trí</strong> — phần trả cho việc được tiếp quản hợp đồng thuê tốt, vị trí đã ổn định, không phải đi tìm mặt bằng mới. <strong>Khó định giá</strong>, dao động 0-300 triệu tùy khu vực.</li>
+    <li><strong>Tài sản vô hình (nếu có)</strong> — fanpage có follower, Google Maps có review, gian hàng app đã chạy, tệp khách quen. <strong>Thường ít giá trị</strong> với quán bạn mở thương hiệu mới (bạn sẽ dùng tên mới, làm fanpage mới, Google Maps mới).</li>
+  </ol>
+
+  <h3>Bảng định giá tài sản chuyển nhượng — chuẩn thị trường 2026</h3>
+  <p>Giá tham chiếu cho thiết bị F&amp;B cũ 1-3 năm tuổi tại HCM/HN. Hãy in bảng này, mang theo khi đi kiểm kê, ghi giá thực tế vào cột cuối.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Hạng mục</th>
+          <th class="num">Giá mới</th>
+          <th class="num">Giá còn lại 1-3 năm</th>
+          <th class="num">Giá nên tính</th>
+          <th>Lưu ý kiểm tra</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Bàn ghế (20 bàn × 4 ghế)</strong></td><td class="num">25-60tr</td><td class="num">10-25tr</td><td class="num">12-18tr</td><td>Mục nát, gãy chân, bọc rách → trừ 50%</td></tr>
+        <tr><td><strong>Quầy thu ngân / bar</strong></td><td class="num">8-15tr</td><td class="num">3-7tr</td><td class="num">4-6tr</td><td>Có ngăn kéo, ổ điện ok?</td></tr>
+        <tr><td><strong>Bếp gas công nghiệp 4 họng</strong></td><td class="num">8-15tr</td><td class="num">3-7tr</td><td class="num">4-6tr</td><td>Test lửa, kiểm rò gas</td></tr>
+        <tr><td><strong>Bếp chiên đôi</strong></td><td class="num">10-18tr</td><td class="num">4-9tr</td><td class="num">5-7tr</td><td>Nhiệt độ ổn định, sạch không cháy</td></tr>
+        <tr><td><strong>Tủ lạnh CN 400-600L</strong></td><td class="num">15-25tr</td><td class="num">6-13tr</td><td class="num">7-10tr</td><td>Kiểm gas lạnh, độ lạnh, tiếng ồn</td></tr>
+        <tr><td><strong>Tủ đông 400-600L</strong></td><td class="num">12-20tr</td><td class="num">5-11tr</td><td class="num">6-9tr</td><td>Đông đá đều, không có gỉ</td></tr>
+        <tr><td><strong>Tủ mát trưng bày</strong></td><td class="num">10-18tr</td><td class="num">4-9tr</td><td class="num">5-7tr</td><td>Cửa kính trong, đèn còn sáng</td></tr>
+        <tr><td><strong>Hệ thống hút mùi + ống lên mái</strong></td><td class="num">15-30tr</td><td class="num">7-15tr</td><td class="num">8-12tr</td><td>Quan trọng nhất — không thay được dễ</td></tr>
+        <tr><td><strong>Máy lạnh 2-3 cái</strong></td><td class="num">20-50tr</td><td class="num">8-25tr</td><td class="num">10-18tr</td><td>Cho chạy 30 phút, kiểm độ lạnh</td></tr>
+        <tr><td><strong>Bồn rửa inox 2-3 ngăn</strong></td><td class="num">5-10tr</td><td class="num">2-5tr</td><td class="num">3-4tr</td><td>Không rỉ sét, thoát nước ok</td></tr>
+        <tr><td><strong>Kệ inox (3-5 kệ)</strong></td><td class="num">5-12tr</td><td class="num">2-6tr</td><td class="num">3-5tr</td><td></td></tr>
+        <tr><td><strong>POS + máy in bill (cũ)</strong></td><td class="num">6-12tr</td><td class="num">2-5tr</td><td class="num">2-4tr</td><td>Phần mềm có còn license? Dữ liệu cũ xoá được?</td></tr>
+        <tr><td><strong>Camera 4-6 mắt</strong></td><td class="num">5-12tr</td><td class="num">2-6tr</td><td class="num">3-5tr</td><td>Kiểm tra ổ cứng, có xem được qua app?</td></tr>
+        <tr><td><strong>Bảng hiệu + đèn LED</strong></td><td class="num">10-30tr</td><td class="num">3-12tr</td><td class="num">0 (bạn sẽ làm bảng mới)</td><td>Bạn dùng thương hiệu mới → bỏ đi</td></tr>
+        <tr><td><strong>Decor tường + ánh sáng</strong></td><td class="num">30-80tr</td><td class="num">10-30tr</td><td class="num">5-15tr</td><td>Hợp concept mới của bạn? Hay phải đập?</td></tr>
+        <tr><td><strong>Chén đĩa tô ly đũa</strong></td><td class="num">8-15tr</td><td class="num">3-6tr</td><td class="num">2-4tr</td><td>30% sẽ vỡ trong 6 tháng — chỉ tính phần dùng được</td></tr>
+        <tr><td><strong>Dụng cụ bếp (dao, nồi, chảo)</strong></td><td class="num">5-12tr</td><td class="num">2-5tr</td><td class="num">2-3tr</td><td>Dao thớt cũ thường phải thay vì VSATTP</td></tr>
+        <tr><td><strong>Nguyên vật liệu còn lại</strong></td><td class="num">—</td><td class="num">—</td><td class="num">Theo giá thực tế</td><td>Kiểm HSD, đông lạnh có còn dùng?</td></tr>
+        <tr><td><strong>Fanpage / Google Maps / gian app</strong></td><td class="num">—</td><td class="num">—</td><td class="num">0 (mở thương hiệu mới)</td><td>Không có giá trị nếu bạn đổi tên</td></tr>
+      </tbody>
+      <tfoot>
+        <tr class="dark-row"><td colspan="3"><strong>TỔNG GIÁ TRỊ TÀI SẢN ƯỚC TÍNH</strong></td><td class="num"><strong>~75-130tr</strong></td><td>Phụ thuộc thiết bị còn dùng được</td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <h3>120 triệu — đáng hay không? 3 kịch bản</h3>
+
+  <div class="price-eval">
+    <div class="price-eval-card green">
+      <h4>HỢP LÝ nếu nhận được:</h4>
+      <div class="verdict">120tr ✓</div>
+      <ul style="font-size:14px; padding-left:18px; margin:8px 0;">
+        <li>Thiết bị đầy đủ trị giá ≥ 90tr (theo bảng trên)</li>
+        <li>Hút mùi đã đi ống lên mái — không phải làm lại</li>
+        <li>Hợp đồng thuê còn ≥ 2 năm, giá không đổi</li>
+        <li>Mặt bằng vị trí thực sự tốt (lưu lượng cao, dễ đậu xe)</li>
+        <li>Chủ cũ đóng vì lý do <strong>cá nhân</strong> (chuyển nhà, định cư), không phải vì ế</li>
+        <li>Không có công nợ thuê / điện / app / nhân viên</li>
+      </ul>
+    </div>
+    <div class="price-eval-card amber">
+      <h4>ĐÀM PHÁN xuống nếu:</h4>
+      <div class="verdict">70-90tr</div>
+      <ul style="font-size:14px; padding-left:18px; margin:8px 0;">
+        <li>Thiết bị giá trị thực ~60-80tr, có 1-2 món hỏng</li>
+        <li>Hút mùi yếu, cần nâng cấp</li>
+        <li>Hợp đồng thuê còn 1-2 năm, có thể tăng giá</li>
+        <li>Decor không hợp concept mới — sẽ đập đi</li>
+        <li>Chủ cũ đóng vì <strong>doanh thu chưa đạt</strong> (cần khảo sát kỹ khu)</li>
+        <li>Có công nợ nhỏ với 1 nhà cung cấp / điện nước</li>
+      </ul>
+    </div>
+    <div class="price-eval-card red">
+      <h4>TUYỆT ĐỐI KHÔNG nhận nếu:</h4>
+      <div class="verdict">0đ — bước đi</div>
+      <ul style="font-size:14px; padding-left:18px; margin:8px 0;">
+        <li>Thiết bị giá trị thực &lt; 40tr (mặt bằng gần như trống)</li>
+        <li>Chủ nhà chưa đồng ý chuyển hợp đồng cho bạn</li>
+        <li>Quán cũ có <strong>tranh chấp pháp lý</strong> hoặc nợ thuế</li>
+        <li>Khu vực đã có 3+ quán Hàn-Nhật mở rồi đóng nhanh</li>
+        <li>Chủ cũ không cho xem POS / sao kê doanh thu</li>
+        <li>Chủ cũ giục cọc gấp, không cho thời gian kiểm kê</li>
+        <li>Hợp đồng thuê còn &lt; 12 tháng và chủ nhà không gia hạn</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Checklist kiểm kê tài sản — làm trước khi trả tiền</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Hạng mục</th>
+          <th>Cách kiểm tra</th>
+          <th>Giấy tờ cần xem</th>
+          <th>Có nên nhận?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Tài sản hữu hình</strong></td><td>Đi kiểm từng món, chụp ảnh, ghi tình trạng. Bật điện thử mọi thiết bị</td><td>Biên bản bàn giao + ảnh + mã model</td><td>Cộng theo bảng định giá trên</td></tr>
+        <tr><td><strong>Hợp đồng thuê hiện tại</strong></td><td>Yêu cầu xem hợp đồng + phụ lục</td><td>Bản gốc hợp đồng, công chứng</td><td>Còn ≥ 2 năm, không tăng giá đột ngột</td></tr>
+        <tr><td><strong>Sự đồng ý của chủ nhà</strong></td><td>Gặp trực tiếp chủ nhà, không qua chủ cũ</td><td>Văn bản đồng ý chuyển nhượng có chữ ký</td><td><strong>Bắt buộc</strong> — không có là loại</td></tr>
+        <tr><td><strong>Công nợ tiền thuê</strong></td><td>Hỏi chủ nhà trực tiếp</td><td>Biên nhận tiền thuê 3-6 tháng gần nhất</td><td>0đ nợ</td></tr>
+        <tr><td><strong>Công nợ điện nước</strong></td><td>Xem hóa đơn 3 tháng gần nhất</td><td>Hóa đơn + biên lai</td><td>Đã thanh toán hết</td></tr>
+        <tr><td><strong>Công nợ nhà cung cấp</strong></td><td>Hỏi rõ + xin danh sách NCC để hỏi chéo</td><td>Văn bản xác nhận không nợ</td><td>0đ nợ</td></tr>
+        <tr><td><strong>Công nợ lương nhân viên</strong></td><td>Hỏi nhân viên cũ trực tiếp (nếu giữ lại)</td><td>Bảng lương 3 tháng + biên nhận</td><td>0đ nợ</td></tr>
+        <tr><td><strong>Công nợ thuế</strong></td><td>Xin xác nhận của Chi cục Thuế</td><td>Văn bản xác nhận thuế</td><td>0đ nợ</td></tr>
+        <tr><td><strong>Tranh chấp pháp lý</strong></td><td>Hỏi hàng xóm 2 bên + công an khu vực</td><td>Không có là tốt</td><td>0 tranh chấp</td></tr>
+        <tr><td><strong>Lý do đóng quán</strong></td><td>Hỏi chủ cũ + hỏi 2-3 hàng xóm + đối thủ quanh đó</td><td>Cross-check 3 nguồn</td><td>Lý do thuyết phục</td></tr>
+        <tr><td><strong>Doanh thu cũ</strong></td><td>Xem POS, sao kê tài khoản app, hóa đơn nhập</td><td>Báo cáo doanh thu 3-6 tháng</td><td>Khớp với quy mô khu vực</td></tr>
+        <tr><td><strong>VSATTP cũ</strong></td><td>Xem chứng nhận VSATTP còn hiệu lực</td><td>Bản gốc giấy VSATTP</td><td>Nên có (nhưng bạn cần làm mới)</td></tr>
+        <tr><td><strong>PCCC</strong></td><td>Xem biên bản nghiệm thu PCCC</td><td>Văn bản PCCC còn hiệu lực</td><td>Nên có</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Xác minh doanh thu cũ — không tin lời chủ cũ</h3>
+  <p>Chủ cũ thường khai doanh thu cao hơn 30-100% so với thực tế để hợp lý hóa phí chuyển nhượng. <strong>Bắt buộc cross-check qua ít nhất 3 nguồn:</strong></p>
+  <ul class="checklist">
+    <li class="must"><strong>POS:</strong> mở máy POS, xem báo cáo doanh thu 90-180 ngày gần nhất. Chủ cũ nói "POS hỏng / mất dữ liệu" → cảnh báo đỏ.</li>
+    <li class="must"><strong>App giao đồ ăn:</strong> đăng nhập vào tài khoản Grab/Shopee/Bee của quán, xem báo cáo doanh thu app 6 tháng gần nhất</li>
+    <li class="must"><strong>Sao kê tài khoản ngân hàng:</strong> tài khoản nhận chuyển khoản của quán — xin sao kê 6 tháng</li>
+    <li class="must"><strong>Hóa đơn nhập nguyên liệu:</strong> xem hóa đơn 3 tháng. Doanh thu ≈ 3 × chi phí nguyên liệu (food cost ~33%)</li>
+    <li><strong>Lượng khách thực tế:</strong> ngồi quan sát quán 2-3 ngày × 4 khung giờ — đếm khách thực, đối chiếu</li>
+    <li><strong>Review &amp; rating:</strong> Google Maps, Grab — số lượt review, tần suất, ngày gần nhất</li>
+    <li><strong>Hỏi shipper quen:</strong> shipper Grab/Shopee thường ghé qua khu — họ biết quán nào đông quán nào ế</li>
+  </ul>
+
+  <div class="callout warn">
+    <strong>Công thức kiểm tra nhanh</strong>
+    <strong>Doanh thu/tháng ≈ Chi phí nguyên liệu/tháng × 3</strong> (food cost 33%). Nếu chủ nói "doanh thu 250tr/tháng" mà hóa đơn nhập nguyên liệu chỉ 50tr/tháng → chủ đang khai khống. Doanh thu thực ~150tr.
+  </div>
+
+  <h3>Câu hỏi BẮT BUỘC hỏi chủ cũ</h3>
+  <ul class="checklist">
+    <li>"Vì sao anh/chị muốn sang nhượng quán?" — Lắng nghe câu trả lời, đối chiếu với hàng xóm</li>
+    <li>"Doanh thu trung bình 3 tháng gần nhất là bao nhiêu? Cho xem POS/sao kê được không?"</li>
+    <li>"Quán có đang nợ ai không — chủ nhà, điện nước, nhà cung cấp, nhân viên, thuế?"</li>
+    <li>"Hợp đồng thuê còn bao lâu? Chủ nhà có đồng ý cho tôi tiếp quản với điều kiện hiện tại?"</li>
+    <li>"Có tranh chấp gì với hàng xóm về tiếng ồn, mùi, để xe không?"</li>
+    <li>"Quán có giấy VSATTP, PCCC còn hiệu lực không?"</li>
+    <li>"Có nhân viên nào đang làm việc, hợp đồng đến khi nào?"</li>
+    <li>"Anh/chị có còn kinh doanh trong lĩnh vực này không?" (Tránh chủ cũ mở quán mới đối diện)</li>
+    <li>"Tôi có thể giữ lại 20-30% tiền chuyển nhượng trong 30 ngày sau bàn giao để chắc chắn không có công nợ phát sinh?" — phản ứng của chủ cho biết nhiều thứ</li>
+    <li>"Khi nào bàn giao? Có biên bản kiểm kê chi tiết không?"</li>
+  </ul>
+
+  <h3>Hỏi hàng xóm — 3 câu vàng</h3>
+  <ol>
+    <li>"Quán này mở được bao lâu rồi? Có thay chủ chưa?"</li>
+    <li>"Trước khi đóng có chuyện gì không — kiện cáo, ầm ĩ, công an đến không?"</li>
+    <li>"Quán có đông khách không? Buổi nào đông nhất?"</li>
+  </ol>
+  <p>Hàng xóm là <strong>nguồn thông tin trung thực nhất</strong> vì họ không có lợi ích gì.</p>
+
+  <h3>Cấu trúc thanh toán đề xuất — bảo vệ bạn</h3>
+  <div class="formula">
+<span class="label">CÁCH THANH TOÁN AN TOÀN:</span>
+
+Đợt 1 — Cọc giữ chỗ (ký thỏa thuận sơ bộ): <span class="num">10-15 triệu</span>
+  → Có biên nhận, ghi rõ "hoàn 100% nếu kiểm tra phát hiện sai sự thật"
+
+Đợt 2 — Sau khi đã kiểm kê + ký hợp đồng chuyển nhượng + chủ nhà ký xác nhận: <span class="num">60-70% tổng phí</span>
+  → Tức ~70-85 triệu nếu phí 120tr
+
+Đợt 3 — Sau 30 ngày bàn giao, không có công nợ phát sinh: <span class="num">20-30% còn lại</span>
+  → Tức ~25-35 triệu — đây là <strong>"giữ lại để bảo đảm"</strong>
+
+<span class="label">QUY TẮC:</span> Không bao giờ trả 100% ngay khi nhận chìa khóa.
+Chủ cũ phản đối "giữ lại" → 50% là họ đang giấu công nợ.
+  </div>
+
+  <h3>Dấu hiệu sang nhượng RỦI RO CAO — bước đi</h3>
+  <ul class="checklist">
+    <li class="stop">Chủ cũ giục cọc trong 24-48h "vì có người khác hỏi"</li>
+    <li class="stop">Không cho xem POS / sao kê / hợp đồng thuê đầy đủ</li>
+    <li class="stop">Chủ nhà không gặp được hoặc không đồng ý chuyển hợp đồng</li>
+    <li class="stop">Có quán Hàn-Nhật khác trong 200m cũng đang ế / vừa đóng</li>
+    <li class="stop">Hợp đồng thuê còn &lt; 12 tháng và chủ nhà không cam kết gia hạn</li>
+    <li class="stop">Hàng xóm có chuyện tiêu cực về quán (tiếng ồn, mùi, mâu thuẫn)</li>
+    <li class="stop">Chủ cũ là người thứ 2-3 sang nhượng trong vòng 2 năm</li>
+    <li class="stop">Mặt bằng đã đóng &gt; 3 tháng — khách quen mất hết, bắt đầu lại từ 0</li>
+    <li class="stop">Giá thuê đột nhiên tăng &gt; 15% khi bạn ký hợp đồng mới</li>
+  </ul>
+</section>
+
+<section class="block" id="s2">
+  <span class="section-num">Phần 02</span>
+  <h2>Đánh giá mặt bằng 25-30 triệu/tháng · 20 bàn · 70 khách</h2>
+
+  <h3>Doanh thu tối thiểu cần đạt</h3>
+  <div class="formula">
+<span class="label">Quy tắc vàng: Tiền thuê ≤ 12% doanh thu (mặt bằng lớn, không nên 15%)</span>
+
+Thuê 25tr/tháng → DT tối thiểu <span class="num">≥ 200tr/tháng</span> = ~6,7tr/ngày
+Thuê 28tr/tháng → DT tối thiểu <span class="num">≥ 230tr/tháng</span> = ~7,7tr/ngày
+Thuê 30tr/tháng → DT tối thiểu <span class="num">≥ 250tr/tháng</span> = ~8,3tr/ngày
+
+<span class="label">Mục tiêu thoải mái (thuê = 10% DT):</span>
+Thuê 28tr → DT mục tiêu <span class="num">280tr/tháng</span> = ~9,3tr/ngày
+  </div>
+
+  <div class="callout note">
+    <strong>Vì sao mặt bằng lớn cần tỷ lệ thuê thấp hơn?</strong>
+    Mặt bằng 20 bàn/70 khách kéo theo <strong>labor cost cao hơn</strong> (cần thêm phục vụ, bếp). Nếu thuê chiếm 15% DT, labor 25% → còn 60% cho food cost + phí app + marketing + khác — rất căng. Nên ép thuê xuống ≤ 12% để có khoảng thở.
+  </div>
+
+  <h3>Bảng tính khách / bill / quay vòng bàn cần đạt</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>AOV</th>
+          <th class="center">DT 6,7tr/ngày<br><small>(Hòa vốn thuê 25tr)</small></th>
+          <th class="center">DT 7,7tr/ngày<br><small>(Hòa vốn thuê 28tr)</small></th>
+          <th class="center">DT 9,3tr/ngày<br><small>(Mục tiêu thoải mái)</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>60.000đ</strong> (cơm/bún)</td><td class="center">112 đơn</td><td class="center">128 đơn</td><td class="center">155 đơn</td></tr>
+        <tr><td><strong>80.000đ</strong> (Hàn-Nhật trung bình)</td><td class="center">84 đơn</td><td class="center">96 đơn</td><td class="center">116 đơn</td></tr>
+        <tr><td><strong>100.000đ</strong> (Hàn-Nhật casual)</td><td class="center">67 đơn</td><td class="center">77 đơn</td><td class="center">93 đơn</td></tr>
+        <tr><td><strong>150.000đ</strong> (nhóm + lẩu/BBQ)</td><td class="center">45 bill</td><td class="center">51 bill</td><td class="center">62 bill</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Phân tích quay vòng bàn (20 bàn)</h3>
+  <p>Với 20 bàn × 4 chỗ ngồi = 80 chỗ tối đa. Thực tế cùng lúc ~70 khách (như họ đã nói). Một ngày bán 2 ca chính (trưa + tối), tỷ lệ quay vòng:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Số khách/ngày</th><th>Bill/ngày (TB 2 khách/bill)</th><th>Quay vòng bàn/ngày</th><th>Đánh giá</th></tr></thead>
+      <tbody>
+        <tr><td>80 khách</td><td>40 bill</td><td>2 lần/bàn</td><td><span class="badge red">Quá vắng — không sống</span></td></tr>
+        <tr><td>120 khách</td><td>60 bill</td><td>3 lần/bàn</td><td><span class="badge amber">Hòa vốn nếu AOV cao</span></td></tr>
+        <tr><td>160 khách</td><td>80 bill</td><td>4 lần/bàn</td><td><span class="badge green">Tốt — sống được</span></td></tr>
+        <tr><td>200 khách</td><td>100 bill</td><td>5 lần/bàn</td><td><span class="badge green">Rất tốt</span></td></tr>
+        <tr><td>240+ khách</td><td>120+ bill</td><td>6+ lần/bàn</td><td><span class="badge purple">Quá tải — cần thêm nhân sự</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Quay vòng 4-5 lần/bàn/ngày là mức "sống được" cho quán Hàn-Nhật casual. Đạt được khi:</p>
+  <ul>
+    <li>Trưa: 50-70 khách ngồi (15-20 bill, quay 1,5-2 lần trong 2 tiếng)</li>
+    <li>Tối: 60-90 khách ngồi (20-30 bill, quay 2-3 lần trong 4 tiếng)</li>
+    <li>App delivery: thêm 30-50 đơn/ngày (không chiếm bàn)</li>
+  </ul>
+
+  <h3>Mặt bằng 20 bàn có quá lớn cho thương hiệu mới?</h3>
+
+  <div class="callout warn">
+    <strong>Rủi ro thực tế của mặt bằng quá lớn so với thương hiệu mới</strong>
+    Thương hiệu mới trong 3 tháng đầu thường chỉ lấp được 30-50% công suất. Khi khách bước vào quán <strong>20 bàn mà chỉ có 2-3 bàn ngồi</strong> — họ cảm thấy "quán này ế, có vấn đề" và không quay lại. Đây là <strong>"vòng xoáy chết"</strong>: vắng → khách nghĩ ế → không quay lại → vắng hơn.
+  </div>
+
+  <h3>Giải pháp: chia mặt bằng theo giai đoạn</h3>
+  <div class="cards-3">
+    <div class="card">
+      <h4>Tháng 1-2: 10-12 bàn mở</h4>
+      <p>Đóng bớt 8-10 bàn còn lại bằng bình phong / cây xanh / khu pickup app. Quán có cảm giác "đầy đủ" với 5-7 bàn có khách.</p>
+      <p><strong>Khu vực đóng:</strong> làm <strong>khu pickup &amp; đóng gói app delivery</strong> — shipper đứng riêng, không chen với khách ngồi.</p>
+    </div>
+    <div class="card">
+      <h4>Tháng 3-4: Mở thêm 4-6 bàn</h4>
+      <p>Nếu cuối tuần khách bắt đầu phải chờ → mở thêm bàn. Ngày thường vẫn giữ 10-12 bàn để có cảm giác đông.</p>
+    </div>
+    <div class="card">
+      <h4>Tháng 5+: Full 20 bàn</h4>
+      <p>Khi đã có khách quen ổn định, quán đạt 60-70% công suất trung bình → mở full. Trước đó: <strong>giữ ảo giác đông</strong>.</p>
+    </div>
+  </div>
+
+  <h3>Mặt bằng này phù hợp bán gì?</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Mô hình bán</th><th>Phù hợp?</th><th>Lý do</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tại quán (dine-in) là chính</strong></td><td><span class="badge green">Rất phù hợp</span></td><td>20 bàn là không gian dine-in chuyên nghiệp</td></tr>
+        <tr><td><strong>Delivery app là chính</strong></td><td><span class="badge red">Lãng phí</span></td><td>Trả 28tr thuê chỉ để có khu đóng gói = lỗ</td></tr>
+        <tr><td><strong>Kết hợp 60% tại quán + 40% app</strong></td><td><span class="badge green">TỐI ƯU</span></td><td>Lấp bàn khi vắng bằng app, tăng DT tổng</td></tr>
+        <tr><td><strong>Take-away là chính</strong></td><td><span class="badge red">Không phù hợp</span></td><td>Mặt bằng lớn quá cho take-away</td></tr>
+        <tr><td><strong>Nhóm / sự kiện (12-20 người)</strong></td><td><span class="badge amber">Bổ sung</span></td><td>20 bàn cho phép sự kiện nhỏ — nguồn DT phụ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <strong>Chiến lược kênh tối ưu cho mặt bằng này</strong>
+    Mục tiêu sau 3 tháng: <strong>60% tại quán + 35% app + 5% sự kiện/đặt tiệc</strong>. Tỷ lệ này cân bằng giữa biên cao (tại quán không mất phí app) và lấp giờ vắng (app delivery). Đừng để app chiếm &gt; 50% — đó là dấu hiệu mặt bằng dine-in không hiệu quả, phí thuê lãng phí.
+  </div>
+</section>
+
+<section class="block" id="s3">
+  <span class="section-num">Phần 03</span>
+  <h2>Định vị thương hiệu mới Hàn-Nhật</h2>
+
+  <h3>Với 20 bàn / 70 khách, concept Hàn-Nhật nào dễ sống nhất?</h3>
+  <p>Mặt bằng cỡ này <strong>không phù hợp</strong> với concept take-away nhỏ (kimbap shop, tokbokki street food) — diện tích thừa, không hợp visual. Phù hợp nhất với <strong>casual dining 3 phong cách</strong>:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Concept</th><th>AOV</th><th>FC%</th><th>Tệp khách</th><th>App</th><th>Vốn setup thêm</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. Cơm Hàn casual + món vặt</strong><br><small>(cơm trộn, jjajangmyeon, gà sốt, kimbap, tokbokki)</small></td><td>80-120k</td><td>30-35%</td><td>VP, SV, gia đình</td><td><span class="badge green">Rất tốt</span></td><td>50-100tr</td></tr>
+        <tr><td><strong>2. Lẩu Hàn / Hotpot cá nhân</strong><br><small>(budae jjigae, kimchi jjigae, lẩu một người)</small></td><td>120-200k</td><td>30-35%</td><td>Nhóm bạn, cặp đôi, gia đình</td><td><span class="badge amber">TB</span></td><td>150-250tr</td></tr>
+        <tr><td><strong>3. Hybrid Hàn-Nhật casual</strong><br><small>(cơm trộn + ramen + bento + sushi đơn giản)</small></td><td>90-150k</td><td>32-38%</td><td>Trẻ 22-35, foodie, văn phòng</td><td><span class="badge green">Tốt</span></td><td>80-150tr</td></tr>
+        <tr><td><strong>4. BBQ Hàn (loại)</strong><br><small>(thịt nướng tại bàn)</small></td><td>250-500k</td><td>35-45%</td><td>Nhóm, cặp đôi</td><td><span class="badge red">Kém</span></td><td>300-500tr</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Vì sao loại BBQ Hàn?</strong>
+    BBQ Hàn cần bếp âm bàn (mỗi bàn 5-10tr × 20 bàn = 100-200tr), hệ thống hút khói cực mạnh, đầu bếp chuyên, marketing rất mạnh. Vốn setup thêm 300-500tr + 120tr chuyển nhượng = &gt; 600tr chỉ cho setup. Quá rủi ro với thương hiệu mới. Bỏ qua.
+  </div>
+
+  <h3>3 hướng định vị đề xuất</h3>
+
+  <div class="cards-3">
+    <div class="card safe">
+      <span class="price-tag">An toàn, dễ bán</span>
+      <h4>Cơm Hàn Casual House</h4>
+      <p><strong>Concept 1 câu:</strong> "Quán cơm Hàn casual đầy đặn — cơm trộn, gà sốt, mì cay, kimbap — cho gia đình &amp; văn phòng. Giá 80-120k/người."</p>
+      <p><strong>Menu cốt:</strong> 5 cơm chính + 3 mì + tokbokki + kimbap + 4 món phụ + đồ uống</p>
+      <p><strong>AOV:</strong> 95-110k (kèm đồ uống)</p>
+      <p><strong>Bán giờ:</strong> Trưa 30% (VP) + Tối 50% (gia đình) + App 20%</p>
+      <p><strong>Vốn setup thêm:</strong> 50-100tr (decor + bếp bổ sung)</p>
+      <p><strong>Nhân sự:</strong> 1 quản lý + 1 bếp chính + 2 phụ bếp + 4 phục vụ + 1 thu ngân = 9 người</p>
+      <p><strong>Vì sao chọn:</strong> Tệp khách rộng nhất, ít trend, dễ bán app, dễ làm gia đình quay lại đều đặn. <strong>Khuyến nghị mạnh cho người mới mở.</strong></p>
+    </div>
+
+    <div class="card viral">
+      <span class="price-tag">Dễ viral</span>
+      <h4>Korea Street Food + Tokbokki House</h4>
+      <p><strong>Concept 1 câu:</strong> "Concept quán Hàn 'kéo phô mai' — tokbokki nhiều loại, gà sốt 4 vị, ramen cay — cho khách trẻ check-in."</p>
+      <p><strong>Menu cốt:</strong> 5 tokbokki (phô mai/hải sản/ramyeon/buldak/đặc biệt) + 4 gà sốt + 2 ramen + 3 cơm + tráng miệng Hàn</p>
+      <p><strong>AOV:</strong> 100-140k (chia sẻ giữa 2 người)</p>
+      <p><strong>Bán giờ:</strong> Tối + cuối tuần mạnh (70%) + Trưa nhẹ (10%) + App (20%)</p>
+      <p><strong>Vốn setup thêm:</strong> 80-150tr (decor concept mạnh + content marketing)</p>
+      <p><strong>Nhân sự:</strong> 9-11 người + 1 part-time content social</p>
+      <p><strong>Vì sao chọn:</strong> Visual mạnh, dễ TikTok viral, AOV cao hơn cơm Hàn. <strong>Nhưng:</strong> rủi ro trend giảm sau 12-18 tháng.</p>
+    </div>
+
+    <div class="card profit">
+      <span class="price-tag">Lợi nhuận tốt</span>
+      <h4>Hybrid Hàn-Nhật Bistro</h4>
+      <p><strong>Concept 1 câu:</strong> "Hàn-Nhật bistro với menu chọn lọc — cơm trộn, ramen, bento, sushi cuộn đơn giản — phù hợp văn phòng trưa + nhóm tối."</p>
+      <p><strong>Menu cốt:</strong> 4 cơm trộn + 3 ramen + 4 bento + 2 cuộn sushi đơn giản + 3 món phụ + nước</p>
+      <p><strong>AOV:</strong> 110-130k</p>
+      <p><strong>Bán giờ:</strong> Trưa 40% (bento VP) + Tối 35% (nhóm) + App 25%</p>
+      <p><strong>Vốn setup thêm:</strong> 80-130tr</p>
+      <p><strong>Nhân sự:</strong> 9-10 người (cần 1 bếp giỏi vì 2 ẩm thực)</p>
+      <p><strong>Vì sao chọn:</strong> Đa dạng tệp khách, không phụ thuộc 1 trend, AOV vừa phải. <strong>Nhược:</strong> menu Nhật + Hàn cần bếp giỏi hơn, đào tạo lâu hơn.</p>
+    </div>
+  </div>
+
+  <h3>USP &amp; Brand Promise — phân biệt với đối thủ</h3>
+  <p>Trong khu vực có 3-5 quán Hàn-Nhật, thương hiệu mới CẦN có 1 trong 3 lý do để khách thử:</p>
+  <ol>
+    <li><strong>Khác biệt sản phẩm:</strong> món signature không quán nào có (ví dụ: tokbokki phô mai 7 cấp độ cay, hoặc bibimbap nướng đá nóng tại bàn)</li>
+    <li><strong>Khác biệt trải nghiệm:</strong> không gian / phục vụ / concept (ví dụ: quán Hàn theo phong cách Seoul 90s, có nhạc K-pop classic)</li>
+    <li><strong>Khác biệt giá / combo:</strong> "Combo cơm Hàn 79k cho dân văn phòng" — rẻ hơn đối thủ 10-15% với cùng chất lượng</li>
+  </ol>
+
+  <div class="callout note">
+    <strong>Đừng cố cạnh tranh trên 3 yếu tố cùng lúc</strong>
+    Chọn 1 USP, làm thật mạnh. Quán mới muốn vừa khác biệt sản phẩm + vừa khác biệt trải nghiệm + vừa rẻ hơn = lỗ. Đa số khách quay lại vì 1 lý do duy nhất họ nhớ rõ.
+  </div>
+
+  <h3>Tên thương hiệu — tiêu chí</h3>
+  <ul>
+    <li><strong>Ngắn, dễ đọc tiếng Việt:</strong> 1-3 từ tối đa (ví dụ: "Bibim House", "Ssalo", "Hana Bap", "Tokbokki Korea")</li>
+    <li><strong>Có yếu tố Hàn/Nhật rõ:</strong> "Bap" (cơm), "Ssam" (cuốn), "Hana" (1), "Yuki" (tuyết), "Sora" (trời)...</li>
+    <li><strong>Search được:</strong> không trùng quán hiện có ở thành phố (Google + map)</li>
+    <li><strong>Tên miền .com / .vn còn:</strong> kiểm tra qua tenmien.vn / namecheap</li>
+    <li><strong>Fanpage Facebook chưa ai dùng:</strong> kiểm tra trên FB Search</li>
+    <li><strong>Có thể nhân ra chuỗi:</strong> tên không gắn với 1 địa điểm cụ thể</li>
+  </ul>
+
+  <h3>Bộ nhận diện thương hiệu cần chuẩn bị</h3>
+  <ul class="checklist">
+    <li class="must">Logo chính (file gốc .ai/.svg) + variant đen-trắng</li>
+    <li class="must">Bảng màu chính (2-3 màu) + font chữ (1 serif + 1 sans-serif)</li>
+    <li class="must">Mockup ứng dụng: bao bì, đồng phục, menu, bảng hiệu</li>
+    <li class="must">Banner Facebook + ảnh đại diện</li>
+    <li class="must">Logo cho POS / hóa đơn</li>
+    <li>Logo nước (decal trên ly)</li>
+    <li>Brand guideline đơn giản (1-2 trang) — cho team marketing dùng</li>
+  </ul>
+  <p><strong>Chi phí thiết kế:</strong> 5-12tr (freelance trên Behance/Fiverr/99designs) hoặc 20-40tr (agency nhỏ).</p>
+</section>
+
+<section class="block" id="s4">
+  <span class="section-num">Phần 04</span>
+  <h2>Lộ trình 16 phase — từ nhận mặt bằng đến ổn định</h2>
+
+  <p>Tổng thời gian dự kiến: <strong>12-16 tuần</strong> từ khi cọc giữ chỗ đến grand opening. Sau đó 90 ngày vận hành đánh giá sống còn.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Phase</th><th>Tuần</th><th>Mục tiêu</th><th>Gate chuyển phase</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td><strong>Kiểm tra chuyển nhượng + hợp đồng thuê</strong></td><td>Tuần 1</td><td>Đánh giá phí 120tr, kiểm kê tài sản</td><td>0 lỗi loại + chấp nhận giá</td></tr>
+        <tr><td>1</td><td><strong>Kiểm tra mặt bằng, tài sản, pháp lý, công nợ</strong></td><td>Tuần 1-2</td><td>Cross-check 3 nguồn, không có nợ ẩn</td><td>Văn bản xác nhận 0 công nợ</td></tr>
+        <tr><td>2</td><td><strong>Nghiên cứu thị trường quanh mặt bằng</strong></td><td>Tuần 2</td><td>Hiểu khách, đối thủ, AOV thị trường</td><td>Có dữ liệu khảo sát đầy đủ</td></tr>
+        <tr><td>3</td><td><strong>Chọn concept + định vị thương hiệu</strong></td><td>Tuần 2-3</td><td>Chốt 1 concept, USP rõ</td><td>Concept 1 câu</td></tr>
+        <tr><td>4</td><td><strong>Thiết kế menu + cost + menu app</strong></td><td>Tuần 3-4</td><td>Menu 15-20 món, cost từng món</td><td>P&amp;L dự phóng có cơ sở</td></tr>
+        <tr><td>5</td><td><strong>Pháp lý: ĐKKD + VSATTP + biển hiệu</strong></td><td>Tuần 3-6</td><td>Có giấy phép trước khai trương</td><td>Đủ giấy tờ</td></tr>
+        <tr><td>6</td><td><strong>Thiết kế nhận diện thương hiệu</strong></td><td>Tuần 3-4</td><td>Logo, brand guide, mockup</td><td>Đã chốt brand</td></tr>
+        <tr><td>7</td><td><strong>Cải tạo decor, bếp, luồng vận hành</strong></td><td>Tuần 4-7</td><td>Mặt bằng hoàn thiện theo concept mới</td><td>Đã test bếp ok</td></tr>
+        <tr><td>8</td><td><strong>Setup POS, app, camera, kho, QR</strong></td><td>Tuần 6-8</td><td>Hệ thống vận hành chạy</td><td>Test giao dịch thành công</td></tr>
+        <tr><td>9</td><td><strong>Tuyển + training nhân viên</strong></td><td>Tuần 7-9</td><td>Đủ đội ngũ + training 3 buổi</td><td>Team tự chạy ca giả lập</td></tr>
+        <tr><td>10</td><td><strong>Xây social trước khai trương</strong></td><td>Tuần 7-10</td><td>Có content, follower, ảnh đẹp</td><td>≥ 500 follower</td></tr>
+        <tr><td>11</td><td><strong>Marketing pre-launch</strong></td><td>Tuần 9-10</td><td>Khách biết ngày khai trương</td><td>≥ 200 người đăng ký quan tâm</td></tr>
+        <tr><td>12</td><td><strong>Soft opening</strong></td><td>Tuần 10-11</td><td>5-7 ngày bán thử, sửa lỗi</td><td>≥ 80% khách "sẽ quay lại"</td></tr>
+        <tr><td>13</td><td><strong>Grand opening</strong></td><td>Tuần 11</td><td>Khai trương chính thức</td><td>Vận hành ổn định 7 ngày</td></tr>
+        <tr><td>14</td><td><strong>30 ngày đầu vận hành</strong></td><td>Tuần 12-15</td><td>DT ≥ 60% mục tiêu, food cost ≤ 38%</td><td>Quyết định: tiếp/chỉnh</td></tr>
+        <tr><td>15</td><td><strong>60 ngày tối ưu</strong></td><td>Tuần 16-19</td><td>Hòa vốn vận hành</td><td>DT tăng ≥ 15% so tháng 1</td></tr>
+        <tr><td>16</td><td><strong>90 ngày quyết định</strong></td><td>Tuần 20-24</td><td>Lời ≥ 5% hoặc quyết định pivot/đóng</td><td>P&amp;L 3 tháng rõ ràng</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Phase 0 — Kiểm tra chuyển nhượng &amp; hợp đồng thuê</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 0</span><span class="phase-duration">Tuần 1 · 5-7 ngày</span></div>
+    <h3>Đánh giá phí 120tr, xác minh tài sản, hỏi hàng xóm</h3>
+    <div class="phase-grid">
+      <div class="phase-block"><h4>Việc cần làm</h4><ul>
+        <li>Đi kiểm kê tài sản theo bảng định giá Phần 1</li>
+        <li>Cross-check doanh thu cũ qua 3 nguồn</li>
+        <li>Hỏi 5-7 hàng xóm về quán cũ</li>
+        <li>Xem hợp đồng thuê + giấy tờ chủ nhà</li>
+        <li>Gặp trực tiếp chủ nhà, xin đồng ý chuyển nhượng</li>
+      </ul></div>
+      <div class="phase-block"><h4>Chi phí Phase 0</h4><ul>
+        <li>Cọc giữ chỗ: 10-15 triệu (hoàn lại nếu không thành)</li>
+        <li>Đi lại, ăn thử, phí tư vấn: 2-3 triệu</li>
+        <li>Phí kiểm tra quy hoạch UBND: 0,5-1 triệu</li>
+      </ul></div>
+    </div>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 1:</span> 0 dấu hiệu loại trừ · Định giá tài sản ≥ 90tr (nếu phí 120tr) · Chủ nhà đồng ý chuyển hợp đồng · Hợp đồng thuê còn ≥ 2 năm</div>
+  </div>
+
+  <h3>Phase 1 — Pháp lý chuyển nhượng + xác minh công nợ</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 1</span><span class="phase-duration">Tuần 1-2 · 1-2 tuần</span></div>
+    <h3>Ký hợp đồng chuyển nhượng + bàn giao tài sản</h3>
+    <div class="phase-grid">
+      <div class="phase-block"><h4>Việc cần làm</h4><ul>
+        <li>Soạn hợp đồng chuyển nhượng (có luật sư xem 1 lần)</li>
+        <li>Văn bản xác nhận 0 công nợ từ chủ cũ</li>
+        <li>Biên bản kiểm kê tài sản chi tiết (có ảnh từng món)</li>
+        <li>Ký hợp đồng thuê mới với chủ nhà (công chứng)</li>
+        <li>Thanh toán đợt 2 (60-70% phí chuyển nhượng)</li>
+        <li>Giữ lại 20-30% trong 30 ngày bảo đảm</li>
+      </ul></div>
+      <div class="phase-block"><h4>Chi phí Phase 1</h4><ul>
+        <li>Phí chuyển nhượng đợt 2: 70-85 triệu</li>
+        <li>Cọc thuê + tháng đầu: 75-90 triệu (2 cọc + 1 trước)</li>
+        <li>Công chứng + luật sư: 2-4 triệu</li>
+      </ul></div>
+    </div>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 2:</span> Có hợp đồng chuyển nhượng + hợp đồng thuê công chứng · Có biên bản bàn giao chi tiết · Có chìa khóa · Tiền đợt 3 đang giữ lại</div>
+  </div>
+
+  <h3>Phase 2 — Nghiên cứu thị trường quanh mặt bằng</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 2</span><span class="phase-duration">Tuần 2 · 1 tuần</span></div>
+    <h3>Hiểu khách, đối thủ, AOV thị trường</h3>
+    <ul>
+      <li>Khảo sát 4 khung giờ × 2 ngày (đếm lưu lượng)</li>
+      <li>Liệt kê 5-10 quán Hàn-Nhật + 5 quán đối thủ gián tiếp</li>
+      <li>Phỏng vấn 15-20 khách target</li>
+      <li>Đánh giá khu: tệp khách, giờ ăn chính, AOV chấp nhận</li>
+    </ul>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 3:</span> Có báo cáo khảo sát · Biết AOV thị trường · Biết 3 món đối thủ làm tốt nhất · Hiểu tệp khách chính</div>
+  </div>
+
+  <h3>Phase 3 — Chọn concept &amp; định vị</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 3</span><span class="phase-duration">Tuần 2-3 · 1 tuần</span></div>
+    <h3>Chốt 1 trong 3 hướng định vị, viết brand story</h3>
+    <ul>
+      <li>Chọn 1 trong 3 concept (Phần 3 trên)</li>
+      <li>Viết concept 1 câu</li>
+      <li>Viết brand story 1 đoạn</li>
+      <li>Định USP, brand promise, tone of voice</li>
+      <li>Đặt tên thương hiệu (kiểm tra trùng + tên miền)</li>
+    </ul>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 4:</span> Concept 1 câu rõ · Tên thương hiệu đã chốt · Brand story xong</div>
+  </div>
+
+  <h3>Phase 4 — Menu + cost + menu app</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 4</span><span class="phase-duration">Tuần 3-4 · 1-2 tuần</span></div>
+    <h3>Thiết kế menu tại quán + menu app + recipe</h3>
+    <ul>
+      <li>15-20 món tổng (xem chi tiết Phần 9)</li>
+      <li>Tính food cost từng món</li>
+      <li>Menu app có giá +10-15% bù phí app</li>
+      <li>Recipe card từng món (in dán bếp)</li>
+      <li>Test menu với 30-50 khách lạ (pop-up / bán nhà)</li>
+    </ul>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 5:</span> Menu đã chốt · Cost từng món có file · ≥ 80% khách test khen ngon · AOV target có cơ sở</div>
+  </div>
+
+  <h3>Phase 5 — Pháp lý</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 5</span><span class="phase-duration">Tuần 3-6 · ~3-4 tuần (song song)</span></div>
+    <h3>ĐKKD + VSATTP + biển hiệu + thuế</h3>
+    <ul>
+      <li>Đăng ký hộ kinh doanh (5-10 ngày)</li>
+      <li>Mã số thuế + khai thuế khoán</li>
+      <li>Tập huấn VSATTP + xin giấy đủ điều kiện (3-4 tuần)</li>
+      <li>Đăng ký biển hiệu</li>
+      <li>Apply Grab/Shopee/Bee (7-14 ngày/app)</li>
+      <li>Hợp đồng lao động chuẩn bị sẵn</li>
+    </ul>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 6:</span> Đã nộp hồ sơ ĐKKD + VSATTP · Đã apply 3 app · Biển hiệu được phê duyệt</div>
+  </div>
+
+  <h3>Phase 6 — Nhận diện thương hiệu</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 6</span><span class="phase-duration">Tuần 3-4 · 1-2 tuần</span></div>
+    <h3>Logo, brand guide, mockup ứng dụng</h3>
+    <ul>
+      <li>Thiết kế logo + variant đen trắng</li>
+      <li>Bảng màu + font</li>
+      <li>Mockup bao bì, menu, đồng phục, bảng hiệu</li>
+      <li>Brand guide 1-2 trang</li>
+    </ul>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 7:</span> Logo + brand chốt · Có file gốc để in</div>
+  </div>
+
+  <h3>Phase 7 — Cải tạo decor + bếp + luồng vận hành</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 7</span><span class="phase-duration">Tuần 4-7 · 3-4 tuần</span></div>
+    <h3>Đập decor cũ không hợp, sơn mới, mua bổ sung thiết bị</h3>
+    <ul>
+      <li>Lập bản vẽ luồng vận hành mới (bếp → ra món → phục vụ → thu ngân)</li>
+      <li>Lập khu pickup app riêng (góc bên)</li>
+      <li>Decor lại theo concept thương hiệu mới</li>
+      <li>Bảng hiệu mới (5-25tr)</li>
+      <li>Đập / sửa decor cũ không hợp</li>
+      <li>Test bếp với menu thật</li>
+      <li>Bổ sung thiết bị thiếu (theo bảng kiểm kê Phase 0)</li>
+    </ul>
+    <p><strong>Chi phí Phase 7:</strong> 50-150 triệu (tùy mức decor cũ còn dùng được bao nhiêu)</p>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 8:</span> Decor hoàn thiện · Bếp test nấu thành công 5 món · Có khu pickup app · Bảng hiệu lắp xong</div>
+  </div>
+
+  <h3>Phase 8 — POS, app, camera, kho, QR</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 8</span><span class="phase-duration">Tuần 6-8 · 2 tuần</span></div>
+    <h3>Setup hệ thống vận hành</h3>
+    <ul>
+      <li>Cài POS (KiotViet / Sapo / Haravan) — cài menu, ảnh, giá</li>
+      <li>Thiết lập gian hàng Grab/Shopee/Bee (chi tiết Phần 7)</li>
+      <li>Camera 4-6 mắt — kết nối app xem từ xa</li>
+      <li>QR thanh toán (VietQR / MoMo / ZaloPay)</li>
+      <li>File kho — Google Sheet quản lý nhập xuất</li>
+      <li>Tài khoản ngân hàng riêng cho quán</li>
+    </ul>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 9:</span> POS chạy, in bill được · 3 app gian hàng đã live · Camera xem được từ xa · QR thanh toán test thành công</div>
+  </div>
+
+  <h3>Phase 9 — Tuyển + training nhân viên</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 9</span><span class="phase-duration">Tuần 7-9 · 2-3 tuần</span></div>
+    <h3>Tuyển 9-10 người, training 3 buổi</h3>
+    <ul>
+      <li>Đăng tuyển trên Vieclam24h, FB nhóm tuyển dụng</li>
+      <li>Phỏng vấn + test bếp (cho bếp chính nấu thử 1 món)</li>
+      <li>Ký hợp đồng lao động</li>
+      <li>Training buổi 1 — văn hóa + sản phẩm</li>
+      <li>Training buổi 2 — quy trình + POS + app</li>
+      <li>Training buổi 3 — thực hành chạy ca giả lập</li>
+    </ul>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 10:</span> Đủ 9-10 người · Đã training 3 buổi · Đội ngũ tự chạy ca giả lập thành công</div>
+  </div>
+
+  <h3>Phase 10-11 — Marketing pre-launch</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 10-11</span><span class="phase-duration">Tuần 7-10 · 3-4 tuần</span></div>
+    <h3>Xây social + chiến dịch khai trương</h3>
+    <p>Chi tiết toàn bộ chiến dịch trong <strong>Phần 5</strong> bên dưới. Mục tiêu: 500+ follower fanpage, 200+ người đăng ký quan tâm khai trương.</p>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 12:</span> ≥ 500 follower · Google Maps live · 3 app đã live · Có lịch khai trương · Đã chạy ≥ 2 chiến dịch ads</div>
+  </div>
+
+  <h3>Phase 12 — Soft Opening</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 12</span><span class="phase-duration">Tuần 10-11 · 5-7 ngày</span></div>
+    <h3>Bán thử với khách giới hạn, sửa lỗi vận hành</h3>
+    <ul>
+      <li>Ngày 1-2: bạn bè người thân (10-15 khách/ngày)</li>
+      <li>Ngày 3-4: khách qua app giới hạn 30 đơn/ngày, giảm 20%</li>
+      <li>Ngày 5-7: mở rộng 50-70 đơn/ngày, test giờ cao điểm</li>
+      <li>Mỗi tối: họp đội 30 phút, sửa lỗi ngay</li>
+    </ul>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 13:</span> Sửa ≥ 80% lỗi · Tốc độ ra món đạt mục tiêu · ≥ 80% khách "sẽ quay lại" · Đội ngũ tự tin</div>
+  </div>
+
+  <h3>Phase 13 — Grand Opening</h3>
+  <div class="phase">
+    <div class="phase-header"><span class="phase-tag">Phase 13</span><span class="phase-duration">Tuần 11 · 1 ngày + cuối tuần kéo dài</span></div>
+    <h3>Khai trương chính thức</h3>
+    <ul>
+      <li>Mở 10-12 bàn (không full 20 bàn — Phần 2)</li>
+      <li>Giới hạn đơn app 60-80 đơn/ngày</li>
+      <li>Combo khai trương 10-20% — không "mua 1 tặng 1"</li>
+      <li>Voucher quay lại 15% lần sau</li>
+      <li>Mời 5-10 KOC địa phương ăn miễn phí</li>
+      <li>Có thêm 2 nhân viên dự phòng</li>
+    </ul>
+    <div class="phase-gate"><span class="gate-label">Gate sang Phase 14:</span> Vận hành trơn tru 7 ngày · Đã có ≥ 20 review thật · Đội ngũ còn năng lượng</div>
+  </div>
+
+  <h3>Phase 14-15-16 — 30 / 60 / 90 ngày sau khai trương</h3>
+  <p>Chi tiết KPI &amp; quyết định cho từng mốc trong <strong>Phần 13</strong> bên dưới.</p>
+</section>
+<!--CHUNK_C--><!--CHUNK_D--><!--CHUNK_E--><!--CHUNK_F-->
+
+</main>
+
+<footer>
+  <p>Kế hoạch nhận sang nhượng F&amp;B · Phí 120tr · Thuê 25-30tr · 20 bàn · Cập nhật 2026</p>
+  <p><em>Phí chuyển nhượng không bao giờ được trả trước khi kiểm kê xong. Đây là quy tắc số 1.</em></p>
+</footer>
+
+<a href="#" class="totop" aria-label="Lên đầu trang">↑</a>
+
+<script>
+  const toTop = document.querySelector('.totop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) toTop.classList.add('visible');
+    else toTop.classList.remove('visible');
+  });
+</script>
+
+</body>
+</html>
